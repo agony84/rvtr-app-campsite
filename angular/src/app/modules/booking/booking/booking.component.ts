@@ -96,7 +96,7 @@ export class BookingComponent implements OnInit {
       // return the list of lodgings filtered by the phrase
       map((lodgings) =>
         lodgings.filter((l) =>
-          `${l.location.address.street}, ${l.location.address.city}, ${l.location.address.country}`.includes(
+          `${l.location.address.street}, ${l.location.address.city}, ${l.location.address.stateProvince}`.includes(
             phrase
           )
         )

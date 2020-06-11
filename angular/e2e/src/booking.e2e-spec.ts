@@ -59,15 +59,29 @@ describe('project rvtr-app-campsite', () => {
     expect(spotlightText).toContain('p',' Lorem ipsum dolor,');
   });
 
-  it('should display one property when Los Angeles is searched', ()=>{
+  it('should display one lodging when RI is searched', ()=>{
     // TODO: when bindings are complete adjust test to search for bound objects
     const locationInput = element(by.name('location'));
     const searchBtn = element(by.buttonText('search'));
-    locationInput.sendKeys('Los Angeles');
+    locationInput.sendKeys('RI');
     searchBtn.click();
     const availLoc = element.all(by.className('tile is-child')).getText();
-    expect(availLoc).toMatch('5421 Whatever Dr, Los Angeles, CA');
+    expect(availLoc).toMatch('123 Main St, Providince, RI');
     expect(availLoc).not.toMatch('New York, NY');
+  });
+
+  it('should display modal when lodging is clicked',()=>{
+    const locationElement = element.all(by.cssContainingText('tile is-child','My Lodging'));
+    locationElement.click();
+    const modal = element(by.className('modal is-active'));
+    expect(modal).toBeTruthy();
+    // locationElement.click();
+    // //const modal = element(by.className('modal is-active'));
+    // expect(element(by.className('modal is-active'))).toBeTruthy();
+    // // const closeBtn = modal.element(by.className('delete'));
+    // // closeBtn.click();
+    // // expect(element(by.className('modal'))).toBeTruthy();
+
   });
 
   afterEach(async () => {
