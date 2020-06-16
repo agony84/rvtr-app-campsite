@@ -92,15 +92,15 @@ describe('project rvtr-app-campsite', () => {
     expect(locationElement.getText()).toContain('Great Lodge');
     locationElement.click();
     const modal = element(by.className('modal-card-title'));
-    expect(modal.isDisplayed()).toBeTrue;
+    expect(modal.isDisplayed()).toBe(true);
     const xBtn = element(by.className('delete'));
     xBtn.click();
-    expect(modal.isDisplayed()).toBeFalse;
+    expect(modal.isDisplayed()).toBe(false);
     locationElement.click();
-    expect(modal.isDisplayed()).toBeTrue;
+    expect(modal.isDisplayed()).toBe(true);
     const cancelBtn = element(by.buttonText('Cancel'));
     cancelBtn.click();
-    expect(modal.isDisplayed()).toBeFalse;
+    expect(modal.isDisplayed()).toBe(false);
   });
 
   it('modal should contain one card by default', () => {

@@ -42,11 +42,11 @@ describe('ValidationService', () => {
 
   it('should return null for rentalsValidator', () => {
     const result: any = ValidationService.rentalsValidator(controlFake as AbstractControl);
-    expect(result).toBeNull;
+    expect(result).toBeNull();
   });
   it('should return null for guestsValidator', () => {
     const result: any = ValidationService.guestsValidator(controlFake as AbstractControl);
-    expect(result).toBeNull;
+    expect(result).toBeNull();
   });
 
 });
